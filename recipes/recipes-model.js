@@ -11,14 +11,16 @@ function getRecipes() {
 }
 
 function getShoppingList(recipe_id) {
-    return database("recipe-ingredients")
-    .join("ingredients", "recipe-ingredients.ingredient_id", "=", "ingredients.ingredient_id")
-    .select("name", "quantity", "unit")
-    .where({recipe_id})
-    .sortBy("name");
+    return database("recipe_ingredients")
+    // .join("ingredients", "recipe-ingredients.ingredient_id", "=", "ingredients.ingredient_id")
+    // .select("name", "quantity", "unit")
+    // .where({recipe_id})
+    .orderBy("name");
 }
 
 function getInstructions(recipe_id) {
     return database("recipe_steps")
+    .select("step", "instructions")
     .where({ recipe_id })
+    .orderBy("step")
 }
