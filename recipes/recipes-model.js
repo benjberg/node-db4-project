@@ -12,9 +12,9 @@ function getRecipes() {
 
 function getShoppingList(recipe_id) {
     return database("recipe_ingredients")
-    // .join("ingredients", "recipe-ingredients.ingredient_id", "=", "ingredients.ingredient_id")
-    // .select("name", "quantity", "unit")
-    // .where({recipe_id})
+    .join("ingredients", "recipe_ingredients.ingredient_id", "=", "ingredients.id")
+    .select("name", "quantity", "unit")
+    .where({recipe_id})
     .orderBy("name");
 }
 
