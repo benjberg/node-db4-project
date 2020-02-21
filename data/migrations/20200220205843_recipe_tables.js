@@ -32,8 +32,7 @@ exports.up = function(knex) {
             .onUpdate("CASCADE")
             .onDelete("RESTRICT");
         
-        table.integer("quantity")
-            .unsigned()
+        table.float("quantity")
         
         table.string("unit", 32)
             
