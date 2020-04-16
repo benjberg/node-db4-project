@@ -17,9 +17,9 @@ function getShoppingList(recipie_id) {
     .where({recipie_id}).orderBy('name')
 }
 
-function getInstructions(recipie_id) {
+function getInstructions(recipe_id) {
 return db('recipie_steps').select('step', 'instructions')
-.where({ recipie_id }).orderBy('step')
+.where({ recipe_id }).orderBy('step')
 }
 
 function getById(id) {
